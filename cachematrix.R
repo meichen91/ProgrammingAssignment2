@@ -1,7 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This package contains function to precompute the inverse of a matrix and
+## store the inverse in the cache. Therefore it does not require repetitive
+## computation when we need the inverse again.
 
-## Write a short comment describing this function
+## This function creates a special "matrix" object that can cache its inverse.
+## 1. set the value of the matrix
+## 2. get the value of the matrix
+## 3. set the value of the inverse
+## 4. get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
@@ -17,7 +22,14 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function computes the inverse of the special "matrix" returned by 
+## makeCacheMatrix above.
+## Example: 
+## A <- matrix(rnorm(9), 3, 3)
+## A2 <- makeCacheMatrix(A)
+## A_inv <- cacheSolve(A2)
+## round(A %*% A_inv, 3) # to check the results
+## A_inv2 <- cacheSolve(A2) # getting cached data
 
 cacheSolve <- function(x, ...) { 
     ## Return a matrix that is the inverse of 'x'
